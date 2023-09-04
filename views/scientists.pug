@@ -1,0 +1,22 @@
+extends layout
+
+block main
+  if scientists.length === 0
+    p There are no scientists. Why not add one?
+  ul
+    each person in scientists
+      a(href=`/scientists/${person.id}?factpg=1`)
+        h3= person.fullname
+
+  div.sci-pg-btns
+    if pageNum - 1 > 0    
+      a.prev(href=`/scientists?page=${pageNum - 1}`) << Previous 10 Scientists
+    
+    if renderNextPageLink
+      a.next(href=`/scientists?page=${pageNum + 1}`) Next 10 Scientists >>
+  
+  each person, index in scientists 
+    li= `${index}`
+    li = #{index}
+
+//- block someBlockNotINLayout

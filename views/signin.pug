@@ -1,0 +1,24 @@
+extends layout
+
+block headerLinks
+
+block main
+  form(action=`/users/signin?redirect=${redirectPath}` method="post")
+    dl
+      dt
+        label Username:
+      dd
+        input(type="text"
+              name="username"
+              placeholder="username"
+              value=username)
+      dt
+        label Password: 
+      dd
+        input(type="text"
+              name="password"
+              placeholder="password"
+              value=password)
+      button Login
+  
+block signIn

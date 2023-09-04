@@ -1,0 +1,14 @@
+extends layout
+
+block main
+  header
+      h2 Editing a fact for '#{fullname}'
+  
+  fieldset.edit-fact 
+    form(action=`/scientists/${sciId}/facts/${factId}/edit` method="post")
+      label(for="factText") Edit fact:
+      input.fact-input(type="text"
+            name="factText"
+            value=factText)
+      button.save Save
+      a(href=`/scientists/${sciId}?factpg=1`) Cancel

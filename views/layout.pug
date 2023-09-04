@@ -1,0 +1,32 @@
+doctype html
+
+html(lang="en-US")
+
+  head
+    title Computer Scientists
+    meta(charset="UTF-8")
+    link(rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Sans")
+    link(rel="stylesheet" href="/stylesheets/application.css")
+
+  body
+    header
+      h1 Computer Scientist Profiles
+      block headerLinks
+        a(href='/scientists/new') +Add a New Computer Scientist
+
+    main 
+      - let flashMsgTypes = Object.keys(flashObj || {});
+      if flashMsgTypes.length > 0
+        ul
+          each flashType in flashMsgTypes
+            each message in flashObj[flashType]
+              h3.flash(class=flashType)= message
+
+      block main
+    
+    footer
+      block signIn
+        form(action="/users/signout" method="post")
+          fieldset.actions
+            p Signed in as #{username}.
+            button Sign Out

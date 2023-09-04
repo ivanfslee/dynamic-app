@@ -1,0 +1,54 @@
+extends layout
+
+block headerLinks
+    a(href=`/scientists?page=1`)
+      h3 Back to Scientists List
+
+block main
+    fieldset
+      h1 #{fullname}
+
+      ul
+        li Date of birth: #{birthdate || "unknown"}
+        li Birthplace: #{birthplace || "unknown"}
+
+      form(action=`/scientists/${sciId}/edit`
+          method="get")
+        button.edit Edit Scientist Details
+
+      form(action=`/scientists/${sciId}/destroy`
+          method="post")
+        button.delete Delete Scientist
+
+    if factsList === undefined || factsList.length === 0
+      p There are no facts for #{fullname}. Why not add one?
+
+
+    fieldset.add-fact 
+      form(action=`/scientists/${sciId}/addFact?factpg=${factPageNum}` method="post")
+        label(for="factText") Enter a new fact:
+        input.fact-input(type="text"
+              name="factText"
+              placeholder="A new fact")
+        button Add Fact
+
+    ul
+      each text, index in factsList
+        fieldset.fact
+          //- Calculate the fact number to display
+          li.fact Fact #{factPageNum * 3 - (2 - index)} 
+            h3= text.fact
+            form(action=`/scientists/${sciId}/facts/${text.id}/edit` 
+                method="get")
+              button.edit Edit Fact
+            
+            form(action=`/scientists/${sciId}/facts/${text.id}/destroy`
+                method="post")
+              button.delete Delete Fact
+
+    div.fact-pg-btns
+      if factPageNum - 1 > 0    
+        a.prev(href=`/scientists/${sciId}?factpg=${factPageNum - 1}`) << Previous 3 Facts
+      
+      if renderNextFactPageLink
+        a.next(href=`/scientists/${sciId}?factpg=${factPageNum + 1}`) Next 3 Facts >>

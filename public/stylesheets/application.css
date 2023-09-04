@@ -1,0 +1,78 @@
+body {
+  font: normal 20px "PT Sans", Helvetica, Arial, sans-serif;
+}
+
+.flash.error {
+  background-color: lightcoral;
+}
+
+.flash.success {
+  background-color: lightgreen;
+}
+
+.flash.info {
+  background-color: lightblue;
+}
+
+a.prev {
+  padding: 10px;
+}
+
+a.next {
+  padding: 10px;
+
+}
+
+div.fact-pg-btns {
+  margin: 15px;
+}
+
+div.sci-pg-btns {
+  margin: 15px;
+}
+
+fieldset.add-fact {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+fieldset.edit-fact {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+input[type=text] {
+  padding: 12px 20px;
+  margin: 8px 0;
+
+}
+
+input[type=text].fact-input {
+  width: 50%;
+  margin-left: 8px;
+  margin-right: 15px;
+}
+
+button.edit {
+  margin-bottom: 5px;
+  background-color: lightskyblue;
+}
+
+button.delete {
+  margin-top: 5px;
+  background-color: rgb(240, 149, 149);
+}
+
+button.save {
+  margin-right: 10px;
+}
+
+fieldset.fact {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+li.fact {
+  margin: 15px;
+  font-size: 25px;
+}

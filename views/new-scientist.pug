@@ -1,0 +1,31 @@
+extends layout
+
+block headerLinks
+
+block main
+  h2 Add A New Computer Scientist
+  form(action="/scientists/new" method="post")
+    dl
+      dt
+        label Computer Scientist Name:
+      dd
+        input(type="text"
+              name="fullname"
+              placeholder="Name"
+              value=fullname)
+      dt
+        label Birthdate: 
+      dd
+        input(type="text"
+              name="birthdate"
+              placeholder="YYYY-MM-DD"
+              value=birthdate)
+      dt 
+        label Birthplace:
+      dd
+        input(type="text"
+              name="birthplace"
+              placeholder="Some place"
+              value=birthplace)        
+      button.save Save
+      a(href='/scientists?page=1') Cancel
