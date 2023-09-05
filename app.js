@@ -592,6 +592,7 @@ app.get('/users/signin', (req, res) => {
     res.redirect('/scientists?page=1');
   } else {
     let redirectPath = req.query.redirect || '/scientists?page=1';
+    console.log('user not logged in');
     req.flash('info', 'Please sign in');
     res.render('signin', {
       redirectPath,
