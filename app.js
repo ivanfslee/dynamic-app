@@ -197,7 +197,7 @@ app.get('/', (req, res) => {
 
 //Display all scientists 
 app.get('/scientists', 
-  isAuthenticated,
+  // isAuthenticated,
   validateQueryStrSciPage,
   catchError(async (req, res) => {
     console.log('this route handler runs!!!!!!');
