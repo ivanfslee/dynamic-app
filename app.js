@@ -13,7 +13,36 @@ const host = config.HOST;
 const port = config.PORT;
 console.log(')))))___________________)))))))))))))))))port is declared again and is: ', port);
 const LokiStore = store(session);
+////////////////////////////////////
+const mongoose = require('mongoose')
+let mongoQuery;
+const url = `mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+1.10.6`
+ 
+mongoose.set('strictQuery',false)
+mongoose.connect(url)
 
+const noteSchema = new mongoose.Schema({
+  content: String,
+  important: Boolean,
+})
+
+const Note = mongoose.model('Note', noteSchema)
+
+const note = new Note({
+  content: 'HTML is Easy',
+  important: true,
+})
+
+const filter = {};
+const all = Note.find(filter).then(result => {
+  console.log(result)
+  console.log(typeof result)
+  console.log(result[0].content)
+  mongoQuery = result[0].content
+  mongoose.connection.close()
+});
+
+///////////////////////////////////
 app.set('views', './views');
 app.set('view engine', 'pug');
 
@@ -204,7 +233,7 @@ app.get('/scientists',
     const recordsPerPage = 10;
     let { scientists, pageNum, renderNextPageLink } = res.locals;
     scientists = scientists.slice(0, recordsPerPage);
-    
+
     res.render('scientists', {scientists, pageNum, renderNextPageLink});
   })
 );
