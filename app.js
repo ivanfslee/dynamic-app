@@ -609,7 +609,8 @@ app.post('/users/signin',
     let store = res.locals.store;
     let authenticated = await store.authenticate(username, password);
     let redirectPath = req.query.redirect;
-    
+   console.log('username is: ', username) 
+   console.log('password is: ', password)
     if (!authenticated) {
       req.flash('error', 'Invalid username/password combination');
       res.render('signin', {
