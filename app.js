@@ -211,7 +211,7 @@ app.get('/scientists',
 
 //Display create new scientist page
 app.get('/scientists/new',
-  isAuthenticated,
+  // isAuthenticated,
   (req, res) => {
     res.render('new-scientist');
   }
@@ -294,7 +294,7 @@ app.post('/scientists/new',
 
 //Display all facts for a scientist
 app.get('/scientists/:scientistId', 
-  isAuthenticated,
+  // isAuthenticated,
   validateSciIdParam, 
   validateQueryStrFactPage,
   catchError(async (req, res) => {
@@ -318,7 +318,7 @@ app.get('/scientists/:scientistId',
 
 //Display edit scientist details form
 app.get('/scientists/:scientistId/edit',
-  isAuthenticated,
+  // isAuthenticated,
   validateSciIdParam,
   catchError(async (req, res) => {
     let sciId = req.params.scientistId;
@@ -488,7 +488,7 @@ app.post('/scientists/:scientistId/addFact',
 
 //Display edit fact form
 app.get('/scientists/:scientistId/facts/:factId/edit',
-  isAuthenticated,
+  // isAuthenticated,
   validateSciIdParam,
   validateFactIdParam,
   catchError(async (req, res) => {
