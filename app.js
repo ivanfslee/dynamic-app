@@ -35,10 +35,11 @@ const note = new Note({
 
 const filter = {};
 const all = Note.find(filter).then(result => {
-  console.log(result)
-  console.log(typeof result)
-  console.log(result[0].content)
-  mongoQuery = result[0].content
+  console.log('record found')
+  console.log('result is: ', result)
+  // console.log(typeof result)
+  // console.log(result[0].content)
+  // mongoQuery = result[0].content
   mongoose.connection.close()
 });
 
