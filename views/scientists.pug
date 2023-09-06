@@ -19,9 +19,13 @@ block main
     li= `${index}`
     li = #{index}
 
-  each doc, index in mongoDocuments 
-    li = `${doc}`
-    p = doc
+    p = mongoDocuments
+    li = mongoDocuments
+    
+  ul
+    each doc, index in mongoDocuments 
+      li = `${doc}`
+      p = doc
 
 
 //- block someBlockNotINLayout
