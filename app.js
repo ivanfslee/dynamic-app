@@ -33,20 +33,22 @@ const note = new Note({
   important: true,
 })
 
-note.save().then(result => {
-  console.log('note saved!')
-  console.log('result of save is: ', result)
-  mongoose.connection.close()
-})
-// const filter = {};
-// const all = Note.find(filter).then(result => {
-//   console.log('record found')
-//   console.log('result is: ', result)
+// Code will save new document to mongo database
+// note.save().then(result => {
+//   console.log('note saved!')
+//   console.log('result of save is: ', result)
+//   mongoose.connection.close()
+// })
+
+const filter = {};
+const all = Note.find(filter).then(result => {
+  console.log('record found')
+  console.log('result is: ', result)
   // console.log(typeof result)
   // console.log(result[0].content)
   // mongoQuery = result[0].content
-//   mongoose.connection.close()
-// });
+  mongoose.connection.close()
+});
 
 ///////////////////////////////////
 app.set('views', './views');
