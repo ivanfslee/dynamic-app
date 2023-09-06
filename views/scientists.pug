@@ -18,5 +18,8 @@ block main
   each person, index in scientists 
     li= `${index}`
     li = #{index}
+  each document, index in mongoDocuments 
+    li = `${document.content}`
+    
 
 //- block someBlockNotINLayout

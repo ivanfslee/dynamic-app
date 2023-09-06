@@ -15,7 +15,7 @@ console.log(')))))___________________)))))))))))))))))port is declared again and
 const LokiStore = store(session);
 ////////////////////////////////////
 const mongoose = require('mongoose')
-let mongoQuery;
+let mongoDocuments;
 const url = `mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+1.10.6`
  
 mongoose.set('strictQuery',false)
@@ -46,7 +46,7 @@ const all = Note.find(filter).then(result => {
   console.log('result is: ', result)
   // console.log(typeof result)
   // console.log(result[0].content)
-  // mongoQuery = result[0].content
+  mongoDocuments = result
   mongoose.connection.close()
 });
 
@@ -242,7 +242,7 @@ app.get('/scientists',
     let { scientists, pageNum, renderNextPageLink } = res.locals;
     scientists = scientists.slice(0, recordsPerPage);
 
-    res.render('scientists', {scientists, pageNum, renderNextPageLink});
+    res.render('scientists', {scientists, pageNum, renderNextPageLink, mongoDocuments});
   })
 );
 
