@@ -17,15 +17,15 @@ block main
   
   each person, index in scientists 
     li= `${index}`
-    li= #{index}
+    li = #{index}
 
-    p= mongoDocuments
-    li= mongoDocuments
+    p = mongoDocuments
+    li = mongoDocuments
 
   ul
     each doc, index in mongoDocuments 
       li= `${doc}`
-      p= doc
+
 
 
 //- block someBlockNotINLayout
