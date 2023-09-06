@@ -15,17 +15,12 @@ block main
     if renderNextPageLink
       a.next(href=`/scientists?page=${pageNum + 1}`) Next 10 Scientists >>
   
-  each person, index in scientists 
-    li= `${index}`
-    li = #{index}
-
-    p = mongoDocuments
-    li = mongoDocuments
+  //- each person, index in scientists 
+  //-   li= `${index}`
+  //-   li = #{index}
 
   ul
-    each doc, index in mongoDocuments 
-      li= `${doc}`
-
-
+    each document, index in mongoDocuments 
+      li= `${document.content}`
 
 //- block someBlockNotINLayout
