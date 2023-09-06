@@ -241,7 +241,8 @@ app.get('/scientists',
     const recordsPerPage = 10;
     let { scientists, pageNum, renderNextPageLink } = res.locals;
     scientists = scientists.slice(0, recordsPerPage);
-
+    console.log('mongoDocuments is: ', mongoDocuments)
+    console.log(typeof mongoDocuments)
     res.render('scientists', {scientists, pageNum, renderNextPageLink, mongoDocuments});
   })
 );
