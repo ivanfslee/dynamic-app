@@ -16,7 +16,8 @@ const LokiStore = store(session);
 ////////////////////////////////////
 const mongoose = require('mongoose')
 let mongoDocuments;
-const url = `mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+1.10.6`
+// const url = config.MONGODB_ATLAS_URL
+const url = config.MONGODB_LOCAL_URL
  
 mongoose.set('strictQuery',false)
 mongoose.connect(url)
